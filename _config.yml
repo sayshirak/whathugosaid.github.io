@@ -1,0 +1,51 @@
+# 站点配置
+title: 我的技术博客
+description: 一个分享Java后端经验的个人博客
+baseurl: ""  # 如果是根域名仓库（如 sayshirak.github.io），设为空
+url: "https://sayshirak.github.io/yubookwords.github.io"  # 替换为您的GitHub Pages URL
+
+# 主题配置（使用Minima主题）
+theme: minima
+
+# 布局和样式自定义
+minima:
+  skin: classic  # 皮肤选项：classic, dark, darker, default
+  social_links:
+    - { platform: github, user: sayshirak }
+    - { platform: email, user: sayshirak@sina.com }
+  show_kv: true  # 显示键值对
+  date_format: "%Y-%m-%d"
+
+# Markdown处理
+markdown: kramdown
+highlighter: rouge
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# 自定义样式
+sass:
+  sass_dir: _sass
+  style: compressed  # 压缩CSS以优化加载
+
+# 导航菜单
+header_pages:
+  - index.md
+  - about.md
+
+# 首页设置
+paginate: 5
+paginate_path: "/page/:num/"
+
+# 插件
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
