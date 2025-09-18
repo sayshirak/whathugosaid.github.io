@@ -2,7 +2,7 @@
 title: 我的技术博客
 description: 一个分享Java后端经验的个人博客
 baseurl: "https://sayshirak.github.io" # 如果是根域名仓库（如 sayshirak.github.io），设为空
-url: "/yubookwords.github.io" # 替换为您的GitHub Pages URL
+url: "/whathugosaid.github.io" # 替换为您的GitHub Pages URL
 
 # 主题配置（使用Minima主题）
 theme: minima

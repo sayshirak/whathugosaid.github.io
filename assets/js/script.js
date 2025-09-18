@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 加载JSON动态内容
-    const jsonPath = '/yubookwords.github.io/assets/data/articles.json'; // 修正路径
+    const jsonPath = '/whathugosaid.github.io/assets/data/articles.json'; // 修正路径
     fetch(jsonPath)
         .then(response => {
             if (!response.ok) {
