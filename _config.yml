@@ -1,13 +1,8 @@
 # 站点配置
 title: 我的技术博客
 description: 一个分享Java后端经验的个人博客
-<<<<<<< HEAD
 baseurl: "/whathugosaid.github.io"  # 如果是根域名仓库（如 sayshirak.github.io），设为空
 url: "https://sayshirak.github.io"  # 替换为您的GitHub Pages URL
-=======
-baseurl: "https://sayshirak.github.io" # 如果是根域名仓库（如 sayshirak.github.io），设为空
-url: "/whathugosaid.github.io" # 替换为您的GitHub Pages URL
->>>>>>> dd0a76e9ad06c80f60d8d979d64bae0b105026af
 
 # 主题配置（使用Minima主题）
 theme: minima
@@ -54,9 +49,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
-<<<<<<< HEAD
 
 # 文章路径配置（简化URL为 /year-month-day-title.html）
 permalink: /:year-:month-:day-:title.html
-=======
->>>>>>> dd0a76e9ad06c80f60d8d979d64bae0b105026af
