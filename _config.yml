@@ -1,15 +1,15 @@
 # 站点配置
-title: 我的技术博客
+title: 我的技术博客1
 description: 一个分享Java后端经验的个人博客
-baseurl: "/whathugosaid.github.io"  # 如果是根域名仓库（如 sayshirak.github.io），设为空
-url: "https://sayshirak.github.io"  # 替换为您的GitHub Pages URL
+baseurl: ""  # 如果是根域名仓库（如 sayshirak.github.io），设为空
+url: "https://sayshirak.github.io/whathugosaid.github.io"  # 替换为您的GitHub Pages URL
 
 # 主题配置（使用Minima主题）
 theme: minima
 
 # 布局和样式自定义
 minima:
-  skin: classic # 皮肤选项：classic, dark, darker, default
+  skin: darker # 皮肤选项：classic, dark, darker, default
   social_links:
     - { platform: github, user: sayshirak }
     - { platform: email, user: sayshirak@sina.com }
@@ -46,7 +46,7 @@ paginate_path: "/page/:num/"
 
 # 插件
 plugins:
-  - jekyll-paginate
+  # - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
 

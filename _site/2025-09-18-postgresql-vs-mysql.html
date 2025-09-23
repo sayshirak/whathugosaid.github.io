@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>数据库基础概念笔记 | 我的技术博客1</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="数据库基础概念笔记" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="数据库基础概念的简单总结，使用Jekyll体验技术笔记的写作。" />
+<meta property="og:description" content="数据库基础概念的简单总结，使用Jekyll体验技术笔记的写作。" />
+<link rel="canonical" href="http://0.0.0.0:4000/2025-09-18-postgresql-vs-mysql.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/2025-09-18-postgresql-vs-mysql.html" />
+<meta property="og:site_name" content="我的技术博客1" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-09-18T14:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="数据库基础概念笔记" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-18T14:00:00+08:00","datePublished":"2025-09-18T14:00:00+08:00","description":"数据库基础概念的简单总结，使用Jekyll体验技术笔记的写作。","headline":"数据库基础概念笔记","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2025-09-18-postgresql-vs-mysql.html"},"url":"http://0.0.0.0:4000/2025-09-18-postgresql-vs-mysql.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="我的技术博客1" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">我的技术博客1</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">数据库基础概念笔记</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-09-18T14:00:00+08:00" itemprop="datePublished">2025-09-18
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="数据库基础概念笔记">数据库基础概念笔记</h1>
+
+<p>这是我第二篇使用<strong>Jekyll</strong>编写的博客，主题是数据库基础概念。通过这篇文章，我主要想体验Jekyll主题对不同格式的支持。</p>
+
+<h2 id="什么是数据库">什么是数据库？</h2>
+
+<h3 id="简单定义">简单定义</h3>
+
+<p><strong>数据库</strong>是一个有组织的<strong>数据集合</strong>，用于<strong>存储</strong>、<strong>管理</strong>和<strong>检索</strong>信息。</p>
+
+<h4 id="数据库的核心特点">数据库的核心特点</h4>
+
+<ul>
+  <li><strong>持久性</strong>：数据长期保存，不会丢失</li>
+  <li><strong>共享性</strong>：多个用户可以同时访问</li>
+  <li><strong>独立性</strong>：数据与程序相互独立</li>
+  <li><strong>并发控制</strong>：支持多用户同时操作</li>
+</ul>
+
+<h2 id="关系型数据库基础">关系型数据库基础</h2>
+
+<h3 id="基本术语">基本术语</h3>
+
+<h4 id="表table">表（Table）</h4>
+<p>类似Excel表格的数据结构：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>字段名</th>
+      <th>数据类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td>INT</td>
+      <td>主键，自增</td>
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td>VARCHAR(50)</td>
+      <td>用户姓名</td>
+    </tr>
+    <tr>
+      <td><strong>email</strong></td>
+      <td>VARCHAR(100)</td>
+      <td>电子邮箱</td>
+    </tr>
+    <tr>
+      <td><strong>created_at</strong></td>
+      <td>DATETIME</td>
+      <td>创建时间</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="基本sql语句">基本SQL语句</h4>
+
+<p><strong>创建表</strong>：</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">users</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">UNIQUE</span><span class="p">,</span>
+    <span class="n">created_at</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>插入数据</strong>：</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">users</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span> 
+<span class="k">VALUES</span> <span class="p">(</span><span class="s1">'张三'</span><span class="p">,</span> <span class="s1">'zhangsan@example.com'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>查询数据</strong>：</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span> 
+<span class="k">FROM</span> <span class="n">users</span> 
+<span class="k">WHERE</span> <span class="n">created_at</span> <span class="o">&gt;</span> <span class="s1">'2025-01-01'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="常见的数据库操作">常见的数据库操作</h2>
+
+<h3 id="crud操作">CRUD操作</h3>
+
+<h4 id="create创建">Create（创建）</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 插入单条记录</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">products</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'笔记本'</span><span class="p">,</span> <span class="mi">5999</span><span class="p">);</span>
+
+<span class="c1">-- 批量插入</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">categories</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> 
+    <span class="p">(</span><span class="s1">'电子产品'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'服装'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'书籍'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="read读取">Read（读取）</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 简单查询</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">orders</span><span class="p">;</span>
+
+<span class="c1">-- 带条件的查询</span>
+<span class="k">SELECT</span> <span class="n">customer_name</span><span class="p">,</span> <span class="n">total</span> 
+<span class="k">FROM</span> <span class="n">orders</span> 
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="s1">'已完成'</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">order_date</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="update更新">Update（更新）</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 更新单条记录</span>
+<span class="k">UPDATE</span> <span class="n">products</span> 
+<span class="k">SET</span> <span class="n">price</span> <span class="o">=</span> <span class="mi">5499</span> 
+<span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">-- 条件更新</span>
+<span class="k">UPDATE</span> <span class="n">inventory</span> 
+<span class="k">SET</span> <span class="n">stock</span> <span class="o">=</span> <span class="n">stock</span> <span class="o">-</span> <span class="mi">1</span> 
+<span class="k">WHERE</span> <span class="n">product_id</span> <span class="o">=</span> <span class="mi">123</span> <span class="k">AND</span> <span class="n">stock</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="delete删除">Delete（删除）</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 删除特定记录</span>
+<span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">temp_data</span> <span class="k">WHERE</span> <span class="n">created_at</span> <span class="o">&lt;</span> <span class="n">NOW</span><span class="p">()</span> <span class="o">-</span> <span class="n">INTERVAL</span> <span class="mi">7</span> <span class="k">DAY</span><span class="p">;</span>
+
+<span class="c1">-- 清空表</span>
+<span class="k">TRUNCATE</span> <span class="k">TABLE</span> <span class="n">logs</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="数据类型简介">数据类型简介</h2>
+
+<h3 id="数值类型">数值类型</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>类型</th>
+      <th>范围</th>
+      <th>用途</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>TINYINT</strong></td>
+      <td>0-255</td>
+      <td>小整数</td>
+    </tr>
+    <tr>
+      <td><strong>INT</strong></td>
+      <td>-231到231-1</td>
+      <td>常用整数</td>
+    </tr>
+    <tr>
+      <td><strong>DECIMAL(10,2)</strong></td>
+      <td>精确小数</td>
+      <td>金额计算</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="字符串类型">字符串类型</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 固定长度字符串</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">employees</span> <span class="p">(</span>
+    <span class="n">emp_id</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>        <span class="c1">-- 固定6位员工编号</span>
+    <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>      <span class="c1">-- 可变长度姓名</span>
+    <span class="n">bio</span> <span class="nb">TEXT</span>               <span class="c1">-- 长文本简介</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="日期时间类型">日期时间类型</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>类型</th>
+      <th>格式</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DATE</strong></td>
+      <td>YYYY-MM-DD</td>
+      <td>2025-09-18</td>
+    </tr>
+    <tr>
+      <td><strong>TIME</strong></td>
+      <td>HH:MM:SS</td>
+      <td>14:30:25</td>
+    </tr>
+    <tr>
+      <td><strong>DATETIME</strong></td>
+      <td>YYYY-MM-DD HH:MM:SS</td>
+      <td>2025-09-18 14:30:25</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="简单的数据库设计示例">简单的数据库设计示例</h2>
+
+<h3 id="用户表设计">用户表设计</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 用户基础信息表</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">users</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">username</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="k">UNIQUE</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">UNIQUE</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">password_hash</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">created_at</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+    <span class="n">is_active</span> <span class="nb">BOOLEAN</span> <span class="k">DEFAULT</span> <span class="k">TRUE</span>
+<span class="p">);</span>
+
+<span class="c1">-- 用户角色表</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">user_roles</span> <span class="p">(</span>
+    <span class="n">user_id</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="k">role</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="k">role</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="插入示例数据">插入示例数据</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 添加测试用户</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">users</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password_hash</span><span class="p">)</span> <span class="k">VALUES</span>
+    <span class="p">(</span><span class="s1">'admin'</span><span class="p">,</span> <span class="s1">'admin@example.com'</span><span class="p">,</span> <span class="s1">'hashed_password_123'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'user1'</span><span class="p">,</span> <span class="s1">'user1@example.com'</span><span class="p">,</span> <span class="s1">'hashed_password_456'</span><span class="p">);</span>
+
+<span class="c1">-- 分配角色</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">user_roles</span> <span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="k">role</span><span class="p">)</span> <span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'ADMIN'</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'USER'</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'USER'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="学习建议">学习建议</h2>
+
+<h3 id="初学者路线">初学者路线</h3>
+
+<ol>
+  <li><strong>掌握基础SQL</strong>：SELECT, INSERT, UPDATE, DELETE</li>
+  <li><strong>理解关系模型</strong>：主键、外键、索引</li>
+  <li><strong>学习事务概念</strong>：ACID特性</li>
+  <li><strong>实践简单项目</strong>：用户管理系统</li>
+</ol>
+
+<h3 id="推荐资源">推荐资源</h3>
+
+<ul>
+  <li><strong>在线练习</strong>：<a href="http://sqlzoo.net/">SQLZoo</a></li>
+  <li><strong>免费课程</strong>：<a href="https://www.w3schools.com/sql/">W3Schools SQL教程</a></li>
+  <li><strong>书籍推荐</strong>：《SQL必知必会》</li>
+</ul>
+
+<h2 id="写在最后">写在最后</h2>
+
+<p>通过这篇简单的数据库笔记，我：</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />体验了Jekyll的Markdown解析</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />学会了创建代码块</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />掌握了表格语法</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />需要练习更多SQL语句</li>
+</ul>
+
+<p><strong>Jekyll确实是一个很棒的博客工具！</strong> 简单易用，自动生成静态页面，完美适合技术博客。</p>
+
+<hr />
+
+<p><em>技术笔记系列第二篇，欢迎体验Jekyll的强大功能！</em></p>
+
+<p><em>最后更新：2025年09月18日 14:00</em></p>
+
+  </div><a class="u-url" href="/2025-09-18-postgresql-vs-mysql.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">我的技术博客1</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">我的技术博客1</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>一个分享Java后端经验的个人博客</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
